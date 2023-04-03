@@ -46,7 +46,8 @@ class AuthController extends Controller
           if(Auth::attempt($credentials)){
             $user = Auth::user();
             $token = $user->createToken('auth_token')->plainTextToken;///we create the user token
-            return response()->json(['data' => $user,'access_token' => $token, 'token_type' => 'Bearer',]);
+            return $token;
+            //return response()->json(['data' => $user,'access_token' => $token, 'token_type' => 'Bearer',]);
         }
 
         //if the data is incorrect we show error

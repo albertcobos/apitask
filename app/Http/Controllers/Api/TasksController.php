@@ -56,6 +56,15 @@ class TasksController extends Controller
         return $task;
     }
 
+    public function endTask(Request $request, string $id)
+    {
+        $product = Task::findOrFail($request->id);
+        $task->state = $request->state;
+
+        $task->save();
+        return $task;
+    }
+
     /**
      * Remove the specified resource from storage.
      */
