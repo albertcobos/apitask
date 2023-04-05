@@ -23,8 +23,7 @@ use App\Http\Controllers\AuthController;
 Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('user-profile', [AuthController::class, 'userProfile']);
     Route::post('logout', [AuthController::class, 'logout']);
-  //  Route::get('tasks', [TaskController::class, 'index']);
-    //Route::get('task', [TaskController::class, 'store']);
+
 });
 
 Route::controller(TasksController::class)->group(function (){
@@ -32,9 +31,8 @@ Route::controller(TasksController::class)->group(function (){
     Route::post('/task', 'store');
     Route::get('/task/{id}', 'show');
     Route::put('/task/{id}', 'update');
-    Route::put('/endTask/{id}', 'endTask');
     Route::delete('/task/{id}', 'destroy');
-
+    Route::put('/endTask/{id}', 'endTask');
 });
 
 Route::post('register', [AuthController::class, 'register']);

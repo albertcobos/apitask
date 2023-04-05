@@ -1,6 +1,8 @@
 <?php
-
 namespace App\Models;
+
+
+
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -9,12 +11,12 @@ class Task extends Model
 {
     public $table = "tasks";
 
-    use Authenticatable, Authorizable, HasFactory;
+
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var array 
      */
     protected $fillable = [
         'id','title','content','date','state'

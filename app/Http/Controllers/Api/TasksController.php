@@ -56,9 +56,10 @@ class TasksController extends Controller
         return $task;
     }
 
-    public function endTask(Request $request, string $id)
+    public function endTask(Request $request, string  $id)
     {
-        $product = Task::findOrFail($request->id);
+        $task = Task::find($id);
+
         $task->state = $request->state;
 
         $task->save();
@@ -70,7 +71,7 @@ class TasksController extends Controller
      */
     public function destroy(string $id)
     {
-        $product = Product::destroy($id);
-        return $product;
+        $task = Task::destroy($id);
+        return $task;
     }
 }
